@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.binapp.adapter.Adapter
@@ -25,8 +26,8 @@ class MainActivity : AppCompatActivity() {
     private val compositeDisposable = CompositeDisposable()
     private lateinit var recycler: RecyclerView
     private val adapter = Adapter()
-    private lateinit var progress: ViewGroup
-//    private val db = BinDataBase.getInstance(application)
+
+    //    private val db = BinDataBase.getInstance(application)
 //    private val binList = db.binInfoDao().getBinList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,9 +38,11 @@ class MainActivity : AppCompatActivity() {
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.setHasFixedSize(true)
 
+
         val button: Button = findViewById(R.id.searchButton)
         val input: EditText = findViewById(R.id.inputField)
         button.setOnClickListener {
+
             val inputText = input.text.toString()
             loadBin(inputText)
         }
@@ -47,24 +50,22 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun loadBin(input: String) {
-            val disposable = (application as BinApp).binApi.getId(input)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                    {onBinsLoaded(it) },
-                    {onError(it)})
+        val disposable = (application as BinApp).binApi.getId(input)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                { onBinsLoaded(it) },
+                { onError(it) })
         compositeDisposable.add(disposable)
     }
-    private fun onBinsLoaded(it: BinInfoItem) {
 
+    private fun onBinsLoaded(it: BinInfoItem) {
         adapter.setBins(it)
     }
-    private fun onError(it: Throwable) {
 
+    private fun onError(it: Throwable) {
         Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
     }
-
-
 
 }
 

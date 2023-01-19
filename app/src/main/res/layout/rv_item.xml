@@ -1,32 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginStart="20dp"
     android:layout_marginBottom="20dp"
-    android:background="@drawable/rounded_corner"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@drawable/rounded_corner">
 
 
     <TextView
-        android:padding="5dp"
-        android:id="@+id/itemText"
+        android:id="@+id/itemBank"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:background="?android:attr/selectableItemBackground"
+        android:padding="5dp"
+        android:text="Bin Item Info"
         android:textColor="@color/white"
         android:textSize="20dp"
-        android:text="Bin Item Info"
-        />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/itemText"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/itemBankUrl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="5dp"
+        android:text="Bin Item Info"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itemBank" />
+
+    <TextView
+        android:id="@+id/itemBankPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="5dp"
+        android:text="Bin Item Info"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itemBankUrl" />
+
+    <TextView
+        android:id="@+id/itemBankOther"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="5dp"
+        android:text="Bin Item Info"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itemBankPhone" />
+
+    <TextView
+        android:id="@+id/itemBankCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="5dp"
+        android:text="Bin Item Info"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itemBankOther" />
+
+    <TextView
+        android:id="@+id/itemBankCurrency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="5dp"
+        android:text="Bin Item Info"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itemBankCountry" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
